@@ -1,0 +1,204 @@
+@font-face {
+    font-family: 'IrishGrrove';
+    src: url(../fonts/IrishGrover-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* :root {
+    --fon-color: #0ff;
+    --td-color: #00f;
+    --td-bgcolor: #ff0;
+    --fon-color: hwb(292 0% 4% / 0.581);
+    --fon-color: hwb(292 75% 2% / 0.581);
+} */
+
+html {
+    --td-text: #fff;
+    --td-bgcolor: #0ff; 
+    --td-border: .15em solid red;
+    --fon-color2: rgb(0, 0, 90);
+    --fon-color: #0ff;
+    --fon-text: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* height: 90vh; */
+    background: var(--fon-color);
+    color: var(--fon-text);
+    font-size: 1rem;
+}
+
+#bee {
+    position: absolute;
+    top: 1rem;
+    /* left: 1rem; */
+    left: 5px;
+    width: 7rem;
+    height: 6rem;
+    text-align: center;
+    font-size: .5rem;
+    /* color: #fff; */
+}
+
+img {
+    width: 4rem;
+    height: 4rem;
+    border: 3px solid yellow;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+#toggler {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+/* section .start */
+
+h1 {
+    font-family: 'IrishGrrove';
+}
+
+#logo2 {
+    font-size: .7em;
+}
+
+#attention {
+    width: 50vw;
+    height: 30vh;
+    margin: auto;
+    display: none;
+    position: absolute;
+    left: 24vw;
+}
+
+#attention .alert {
+    border-radius: 2em;
+    z-index: 1;
+}
+
+#warning {
+    padding-left: 3rem;
+}
+
+/*section .counter */
+
+.rahunok {
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.block,
+.block3 {
+    display: none;
+}
+
+
+/* #main */
+
+table {
+    border-collapse: separate;
+    margin: 25px auto;
+}
+
+td {
+    width: 2em;
+    height: 2em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: var(--td-border);
+    border-radius: 50%;
+    background-color: var(--fon-color2);
+    color: var(--td-text);
+    text-align: center;
+}
+
+#main td {
+    border-color: green;
+}
+
+
+/* section .input */
+
+.input {
+    /* font-size: 1rem; */
+    font-size: 1em;
+    position: relative;
+}
+
+#info {
+    /* font-size: .8rem; */
+    font-size: .8em;
+}
+
+#help {
+    height: 4em;
+    width: 4em;
+    font-size: 9px;
+
+    /* width: 55px;
+    height: 55px;
+    font-size: 5px; */
+    text-align: center;
+    border: var(--td-border);
+    border-width: 3px;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0;
+}
+
+/* section #reference */
+
+.modal-content {
+    position: relative;
+    color: #000;
+    min-width: 40vw;
+}
+
+.btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#header-content {
+    font-size: 0.6rem;
+    /* color: #0f0; */
+    width: 100%;
+    text-align: center;
+}
+
+
+#modalword {
+    font-size: 1.2rem;
+    background: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#frame {
+    width: inherit;
+    height: 100%;
+    font-size: 1rem;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.modal-resize {
+    height: 75vh;
+}
+
+#mytext {
+    text-transform: uppercase;
+    font-weight: bold;
+}
