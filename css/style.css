@@ -5,14 +5,6 @@
     font-style: normal;
 }
 
-/* :root {
-    --fon-color: #0ff;
-    --td-color: #00f;
-    --td-bgcolor: #ff0;
-    --fon-color: hwb(292 0% 4% / 0.581);
-    --fon-color: hwb(292 75% 2% / 0.581);
-} */
-
 html {
     --td-text: #fff;
     --td-bgcolor: #0ff; 
@@ -28,47 +20,61 @@ html {
 }
 
 body {
-    /* height: 90vh; */
     background: var(--fon-color);
     color: var(--fon-text);
-    font-size: 1rem;
 }
 
-#bee {
-    position: absolute;
-    top: 1rem;
-    /* left: 1rem; */
-    left: 5px;
-    width: 7rem;
-    height: 6rem;
+/* block #bee */
+
+.icon {
+    width: 10vw;
+    height: 16vw;
     text-align: center;
-    font-size: .5rem;
-    /* color: #fff; */
+    font-size: .6em;
+    margin-left: 10px;
+    transition-property: transform, height;
+    transition-duration: 1s;
+    background-color: var(--fon-color);
+}
+
+.zoom {
+    transform: translate(380%, 140%) scale(3);
+    height: 20vw;
 }
 
 img {
-    width: 4rem;
-    height: 4rem;
+    width: 10vw;
+    height: 10vw;
     border: 3px solid yellow;
     border-radius: 50%;
-    margin-bottom: 4px;
+    margin: 4px auto;
 }
+
+#bee:hover {
+    cursor: pointer;
+}
+
+/* section #start */
 
 #toggler {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
+    font-size: 1rem;
+    margin-right: 10px;
 }
 
-/* section .start */
+.form-check-input:hover, .form-check-label:hover {
+    cursor: pointer;
+}
 
 h1 {
     font-family: 'IrishGrrove';
+    font-size: 1.5em;
 }
 
 #logo2 {
     font-size: .7em;
 }
+
+/* section #attention */
 
 #attention {
     width: 50vw;
@@ -88,64 +94,49 @@ h1 {
     padding-left: 3rem;
 }
 
-/*section .counter */
-
-.rahunok {
-    font-size: .8rem;
-    font-weight: bold;
-}
+/*section #counter */
 
 .block,
 .block3 {
     display: none;
 }
 
+.block3 {
+    font-size: .5rem;
+}
+
 
 /* #main */
 
-table {
-    border-collapse: separate;
-    margin: 25px auto;
-}
-
-td {
+.word, td {
     width: 2em;
     height: 2em;
-    font-size: 1.2rem;
+    font-size: 1.25em;
     font-weight: bold;
     border: var(--td-border);
     border-radius: 50%;
     background-color: var(--fon-color2);
     color: var(--td-text);
     text-align: center;
+    margin-left: 2px;
+    padding: 5px auto;
 }
 
-#main td {
+#main .word {
     border-color: green;
 }
 
+/* section #input */
 
-/* section .input */
-
-.input {
-    /* font-size: 1rem; */
-    font-size: 1em;
-    position: relative;
-}
-
-#info {
-    /* font-size: .8rem; */
-    font-size: .8em;
+table {
+    border-collapse: separate;
+    margin: 25px auto;
 }
 
 #help {
     height: 4em;
     width: 4em;
-    font-size: 9px;
-
-    /* width: 55px;
-    height: 55px;
-    font-size: 5px; */
+    font-size: .8rem;
     text-align: center;
     border: var(--td-border);
     border-width: 3px;
@@ -153,6 +144,7 @@ td {
     margin: auto;
     padding: 0;
 }
+
 
 /* section #reference */
 
@@ -170,7 +162,6 @@ td {
 
 #header-content {
     font-size: 0.6rem;
-    /* color: #0f0; */
     width: 100%;
     text-align: center;
 }
@@ -201,4 +192,14 @@ iframe {
 #mytext {
     text-transform: uppercase;
     font-weight: bold;
+}
+
+/* section #comment */
+
+#comment svg {
+    fill: var(--fon-color2);
+}
+
+#hidecomm {
+    display: none;
 }
