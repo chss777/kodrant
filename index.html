@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ugadaika</title>
+</head>
+<body>
+    <div class="container">
+        <section id="start">
+            <div class="row my-3">
+                <div class="col-12 d-flex justify-content-between">
+                    <div id="bee" class="icon">
+                        <img src="pictures/bee_and_nectar.jpg" alt="bee and nectar">
+                        <div>Пс. 118:103</div>
+                    </div>
+                    <div class="text-center fs-1">
+                        <h1>Ugadaika</h1>
+                        <div id="logo2"><i>интеллектуальная библейская игра</i></div>
+                    </div>
+                    <div id="toggler">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Radio1" onclick="tolight()">
+                            <label class="form-check-label" for="Radio1">
+                            Light
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Radio2" onclick="todark()">
+                            <label class="form-check-label" for="Radio2">
+                            Dark
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5" id="play">
+                <div class="col-12 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="green" class="bi bi-play-fill btn" viewBox="0 0 16 16" onclick="start()">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                    </svg>
+                </div>
+            </div>    
+        </section>
+        
+        <section id="attention" class="row">
+        </section>
+         
+        <section id="counter" class="fs-4">
+            <div class="row fw-bold ps-3">
+                <div class="col-8 block">
+                    <div id="raunds"></div>
+                    <div><span id="raund"></span>-й раунд - <span id="gamer1"></span> : <span id="gamer2"></span>
+                    </div>
+                </div>
+                <div class="col-4 block text-center">
+                    <div>
+                        <p>Счёт по раундам:</p>
+                        <p>
+                            <span id="side1"></span> : <span id="side2"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center block">
+                    <div>У Вас <span id="num"></span> попыток</div>
+                </div>
+            </div>    
+        </section>
+
+
+        <section id="reference" class="row">
+            <div id="mode1" class="modal col" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex flex-column">
+                            <div id="header-content">Правильный ответ:</div>
+                            <span id="modalword" class="d-block fw-bold text-primary" onclick="opendict()"></span>
+                            <button id="closemodal" type="button" class="btn-close d-block m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mx-0">
+                            <div id="myanswer" class="text-center"></div>
+                            <div id="frame"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row my-5">
+            <div id="main" class="col block d-flex justify-content-center flex-wrap">
+            </div>
+        </div>
+   
+        <section id="input">
+            <div class="row my-3">
+                <div class="col-12 block text-center">
+                    <input type="text" name="write" id="letter" onkeyup="this.value = this.value.toUpperCase();" placeholder="Введите букву или всё слово">
+                    <button onclick="ok()">OK</button>
+                </div>
+            </div>
+            <div class="row my-3 ps-3" id="info">
+                <div class="block3 col-3 my-auto">
+                    <div id="useds">Эти буквы<br>уже вводились:</div>
+                </div>
+                <div class=" col-9 col-sm-7">
+                    <table class="ms-1">
+                        <tr id="tr1"></tr>
+                    </table>
+                </div>
+                <div class=" col-12 col-sm-2 my-auto">
+                    <button type="button" class="block3 btn btn-success" onclick="openLetter()" id="help">Open</button>
+                </div>
+            </div>
+        </section>
+        <section id="comment" class="row mt-5">
+            <div class="col-6">
+                <figure id="viewcomm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-chat-left-text btn" viewBox="0 0 16 16" onclick="toComments()">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <figcaption style="font-size: 12px;"> Написать комментарий</figcaption>
+                </figure>
+            </div>   
+            <div class="col-6">
+                <button id="hidecomm" type="button" class=" btn btn-danger float-end" onclick="offComments()">CLOSE</button>
+            </div>
+            <div class="row">
+                <div id="disqus_thread" class="col"></div>
+            </div>
+        </section>       
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+        <script>            
+            var disqus_config = function () {
+            this.page.url = "https://chss777.github.io/kodrant/";  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier =""; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            const disqus = document.getElementById('disqus_thread');
+            const hide = document.getElementById('hidecomm');
+            const viewcomm = document.getElementById('viewcomm');
+
+            function toComments() { 
+            disqus.style.display = 'block';
+            hide.style.display = 'block';
+            viewcomm.style.display = 'none';
+            var d = document, s = d.createElement('script');
+            s.src = 'https://chss777.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            };
+            function offComments() {
+                disqus.style.display = 'none';
+                hide.style.display = 'none';
+                viewcomm.style.display = 'block';
+            }
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>        
+        <script src="js/catalog.js "></script>
+        <script src="js/script.js"></script>
+</body>
+</html>
