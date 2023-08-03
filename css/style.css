@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'IrishGrrove';
+    src: url(../fonts/IrishGrover-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    --td-text: #fff;
+    --td-bgcolor: #0ff; 
+    --td-border: .15em solid red;
+    --fon-color2: rgb(0, 0, 90);
+    --fon-color: #0ff;
+    --fon-text: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--fon-color);
+    color: var(--fon-text);
+}
+
+/* block #bee */
+
+.icon {
+    width: 10vw;
+    height: 16vw;
+    text-align: center;
+    font-size: .6em;
+    margin-left: 10px;
+    transition-property: transform, height;
+    transition-duration: 1s;
+    background-color: var(--fon-color);
+}
+
+.zoom {
+    transform: translate(380%, 140%) scale(3);
+    height: 20vw;
+}
+
+img {
+    width: 10vw;
+    height: 10vw;
+    border: 3px solid yellow;
+    border-radius: 50%;
+    margin: 4px auto;
+}
+
+#bee:hover {
+    cursor: pointer;
+}
+
+/* section #start */
+
+#toggler {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.form-check-input:hover, .form-check-label:hover {
+    cursor: pointer;
+}
+
+h1 {
+    font-family: 'IrishGrrove';
+    font-size: 1.5em;
+}
+
+#logo2 {
+    font-size: .7em;
+}
+
+/* section #attention */
+
+#attention {
+    width: 50vw;
+    height: 30vh;
+    margin: auto;
+    display: none;
+    position: absolute;
+    left: 24vw;
+}
+
+#attention .alert {
+    border-radius: 2em;
+    z-index: 1;
+}
+
+#warning {
+    padding-left: 3rem;
+}
+
+/*section #counter */
+
+.block,
+.block3 {
+    display: none;
+}
+
+.block3 {
+    font-size: .5rem;
+}
+
+
+/* #main */
+
+.word, td {
+    width: 2em;
+    height: 2em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border: var(--td-border);
+    border-radius: 50%;
+    background-color: var(--fon-color2);
+    color: var(--td-text);
+    text-align: center;
+    margin-left: 2px;
+    padding: 5px auto;
+}
+
+#main .word {
+    border-color: green;
+}
+
+/* section #input */
+
+table {
+    border-collapse: separate;
+    margin: 25px auto;
+}
+
+
+#help {
+    height: 4em;
+    width: 4em;
+    font-size: .8rem;
+    text-align: center;
+    border: var(--td-border);
+    border-width: 3px;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0;
+}
+
+
+/* section #reference */
+
+.modal-content {
+    position: relative;
+    color: #000;
+    min-width: 40vw;
+}
+
+.btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#header-content {
+    font-size: 0.6rem;
+    width: 100%;
+    text-align: center;
+}
+
+
+#modalword {
+    font-size: 1.2rem;
+    background: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#frame {
+    width: inherit;
+    height: 100%;
+    font-size: 1rem;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.modal-resize {
+    height: 75vh;
+}
+
+#mytext {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* section #comment */
+
+#comment svg {
+    fill: var(--fon-color2);
+}
+
+#hidecomm {
+    display: none;
+}
