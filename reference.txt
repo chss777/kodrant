@@ -4,3 +4,6 @@
 
 # Если хотите использовать перебазирование при получении изменений: 
     git config --global pull.rebase "true"
+
+# adress:
+https://chss777.github.io/ugadaika/
