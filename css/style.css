@@ -7,7 +7,7 @@
 
 html {
     --td-text: #fff;
-    --td-bgcolor: #0ff; 
+    --td-bgcolor: #0ff;
     --td-border: .15em solid red;
     --fon-color2: rgb(0, 0, 90);
     --fon-color: #0ff;
@@ -20,21 +20,31 @@ html {
 }
 
 body {
-    background: var(--fon-color);
-    color: var(--fon-text);
+    background: var(--fon-color2);
+    /* color: var(--fon-text); */
+    color: #fff;
 }
+
 
 /* block #bee */
 
+#title {
+    position: relative;
+}
+
 .icon {
     width: 10vw;
-    height: 16vw;
+    height: 10vw;
     text-align: center;
     font-size: .6em;
     margin-left: 10px;
-    transition-property: transform, height;
+    /* transition-property: transform, height;
     transition-duration: 1s;
-    background-color: var(--fon-color);
+    background-color: var(--fon-color); */
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .zoom {
@@ -43,16 +53,11 @@ body {
 }
 
 img {
-    width: 10vw;
-    height: 10vw;
-    border: 3px solid yellow;
-    border-radius: 50%;
+    width: 8vw;
+    height: 8vw;
     margin: 4px auto;
 }
 
-#bee:hover {
-    cursor: pointer;
-}
 
 /* section #start */
 
@@ -61,18 +66,23 @@ img {
     margin-right: 10px;
 }
 
-.form-check-input:hover, .form-check-label:hover {
+.form-check-input:hover,
+.form-check-label:hover {
     cursor: pointer;
 }
 
 h1 {
     font-family: 'IrishGrrove';
     font-size: 1.5em;
+    color: rgb(255, 255, 0);
+    ;
 }
 
 #logo2 {
     font-size: .7em;
+    color: #fff;
 }
+
 
 /* section #attention */
 
@@ -94,6 +104,7 @@ h1 {
     padding-left: 3rem;
 }
 
+
 /*section #counter */
 
 .block,
@@ -108,15 +119,16 @@ h1 {
 
 /* #main */
 
-.word, td {
+.word,
+td {
     width: 2em;
     height: 2em;
     font-size: 1.25em;
     font-weight: bold;
     border: var(--td-border);
     border-radius: 50%;
-    background-color: var(--fon-color2);
-    color: var(--td-text);
+    background-color: var(--fon-color);
+    color: #000;
     text-align: center;
     margin-left: 2px;
     padding: 5px auto;
@@ -126,13 +138,13 @@ h1 {
     border-color: green;
 }
 
+
 /* section #input */
 
 table {
     border-collapse: separate;
     margin: 25px auto;
 }
-
 
 #help {
     height: 4em;
@@ -167,7 +179,6 @@ table {
     text-align: center;
 }
 
-
 #modalword {
     font-size: 1.2rem;
     background: inherit;
@@ -195,12 +206,27 @@ iframe {
     font-weight: bold;
 }
 
+#disqus_thread {
+    background-color: rgb(0, 68, 68);
+}
+
+
 /* section #comment */
 
+#comment {
+    position: relative;
+}
+
 #comment svg {
-    fill: var(--fon-color2);
+    fill: var(--fon-color);
+    /* fill: #fff; */
 }
 
 #hidecomm {
+    width: 4em;
+    height: 2em;
     display: none;
+    position: absolute;
+    top: .5em;
+    right: .5em;
 }

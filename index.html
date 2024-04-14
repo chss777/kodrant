@@ -18,44 +18,17 @@
         <div class="container">
             <section id="start">
                 <div class="row my-3">
-                    <div class="col-12 d-flex justify-content-between">
-                        <div id="bee" class="icon">
+                    <div class="col-12 text-center" id="title">
+                        <div id="alfa_i_omega" class="icon">
                             <img
-                                src="pictures/bee_and_nectar.jpg"
-                                alt="bee and nectar"
+                                src="img/alfa_i_omega.png"
+                                alt="Alfa and Omega"
                             />
-                            <div>Пс. 118:103</div>
                         </div>
                         <div class="text-center fs-1">
                             <h1>Ugadaika</h1>
                             <div id="logo2">
                                 <i>интеллектуальная библейская игра</i>
-                            </div>
-                        </div>
-                        <div id="toggler">
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="flexRadioDefault"
-                                    id="Radio1"
-                                    onclick="tolight()"
-                                />
-                                <label class="form-check-label" for="Radio1">
-                                    Light
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="flexRadioDefault"
-                                    id="Radio2"
-                                    onclick="todark()"
-                                />
-                                <label class="form-check-label" for="Radio2">
-                                    Dark
-                                </label>
                             </div>
                         </div>
                     </div>
@@ -201,7 +174,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">
+                <!-- <div class="col-6">
                     <button
                         id="hidecomm"
                         type="button"
@@ -210,8 +183,16 @@
                     >
                         CLOSE
                     </button>
-                </div>
+                </div> -->
                 <div class="row">
+                    <button
+                        id="hidecomm"
+                        type="button"
+                        class="btn btn-danger"
+                        onclick="offComments()"
+                    >
+                        CLOSE
+                    </button>
                     <div id="disqus_thread" class="col"></div>
                 </div>
             </section>
