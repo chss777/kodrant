@@ -215,18 +215,23 @@ iframe {
 
 #comment {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 #comment svg {
     fill: var(--fon-color);
-    /* fill: #fff; */
 }
 
 #hidecomm {
-    width: 4em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
+    font-size: 2rem;
     display: none;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: .5em;
-    right: .5em;
+    top: .5rem;
+    right: 2rem;
+    background-color: inherit;
 }

@@ -174,26 +174,16 @@
                         </figcaption>
                     </figure>
                 </div>
-                <!-- <div class="col-6">
-                    <button
-                        id="hidecomm"
-                        type="button"
-                        class="btn btn-danger float-end"
-                        onclick="offComments()"
-                    >
-                        CLOSE
-                    </button>
-                </div> -->
                 <div class="row">
+                    <div id="disqus_thread" class="col"></div>
                     <button
                         id="hidecomm"
                         type="button"
-                        class="btn btn-danger"
+                        class="btn btn-danger text-center"
                         onclick="offComments()"
                     >
-                        CLOSE
+                        <div>&times</div>
                     </button>
-                    <div id="disqus_thread" class="col"></div>
                 </div>
             </section>
         </div>
@@ -213,7 +203,7 @@
 
             function toComments() {
                 disqus.style.display = "block";
-                hide.style.display = "block";
+                hide.style.display = "flex";
                 viewcomm.style.display = "none";
                 var d = document,
                     s = d.createElement("script");
