@@ -109,46 +109,57 @@
                 </div>
             </section>
 
-            <div class="row my-5">
+            <div class="row">
                 <div
                     id="main"
                     class="col block d-flex justify-content-center flex-wrap"
                 ></div>
             </div>
 
-            <section id="input">
-                <div class="row my-3">
-                    <div class="col-12 block text-center">
-                        <input
-                            type="text"
-                            name="write"
-                            id="letter"
-                            onkeyup="this.value = this.value.toUpperCase();"
-                            placeholder="Введите букву или всё слово"
-                        />
-                        <button onclick="ok()">OK</button>
-                    </div>
-                </div>
-                <div class="row my-3 ps-3" id="info">
-                    <div class="block3 col-3 my-auto">
-                        <div id="useds">Эти буквы<br />уже вводились:</div>
-                    </div>
-                    <div class="col-9 col-sm-7">
-                        <table class="ms-1">
-                            <tr id="tr1"></tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-sm-2 my-auto">
-                        <button
-                            type="button"
-                            class="block3 btn btn-success"
-                            onclick="openLetter()"
-                            id="help"
-                        >
-                            Open
-                        </button>
-                    </div>
-                </div>
+            <section id="keyboard">
+                <table id="keys">
+                    <tbody>
+                        <tr>
+                            <td class="key" data-state="true">Й</td>
+                            <td class="key" data-state="true">Ц</td>
+                            <td class="key" data-state="true">У</td>
+                            <td class="key" data-state="true">К</td>
+                            <td class="key" data-state="true">Е</td>
+                            <td class="key" data-state="true">Н</td>
+                            <td class="key" data-state="true">Г</td>
+                            <td class="key" data-state="true">Ш</td>
+                            <td class="key" data-state="true">Щ</td>
+                            <td class="key" data-state="true">З</td>
+                            <td class="key" data-state="true">Х</td>
+                        </tr>
+                        <tr>
+                            <td class="key" data-state="true">Ф</td>
+                            <td class="key" data-state="true">Ы</td>
+                            <td class="key" data-state="true">В</td>
+                            <td class="key" data-state="true">А</td>
+                            <td class="key" data-state="true">П</td>
+                            <td class="key" data-state="true">Р</td>
+                            <td class="key" data-state="true">О</td>
+                            <td class="key" data-state="true">Л</td>
+                            <td class="key" data-state="true">Д</td>
+                            <td class="key" data-state="true">Ж</td>
+                            <td class="key" data-state="true">Э</td>
+                        </tr>
+                        <tr>
+                            <td class="key" data-state="true">Ё</td>
+                            <td class="key" data-state="true">Я</td>
+                            <td class="key" data-state="true">Ч</td>
+                            <td class="key" data-state="true">С</td>
+                            <td class="key" data-state="true">М</td>
+                            <td class="key" data-state="true">И</td>
+                            <td class="key" data-state="true">Т</td>
+                            <td class="key" data-state="true">Ь</td>
+                            <td class="key" data-state="true">Б</td>
+                            <td class="key" data-state="true">Ю</td>
+                            <td class="key" data-state="true">Ъ</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
             <section id="comment" class="row mt-5">
                 <div class="col-6">

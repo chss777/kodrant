@@ -25,9 +25,6 @@ body {
     color: #fff;
 }
 
-
-/* block #bee */
-
 #title {
     position: relative;
 }
@@ -38,18 +35,10 @@ body {
     text-align: center;
     font-size: .6em;
     margin-left: 10px;
-    /* transition-property: transform, height;
-    transition-duration: 1s;
-    background-color: var(--fon-color); */
     cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.zoom {
-    transform: translate(380%, 140%) scale(3);
-    height: 20vw;
 }
 
 img {
@@ -60,16 +49,6 @@ img {
 
 
 /* section #start */
-
-#toggler {
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.form-check-input:hover,
-.form-check-label:hover {
-    cursor: pointer;
-}
 
 h1 {
     font-family: 'IrishGrrove';
@@ -107,15 +86,10 @@ h1 {
 
 /*section #counter */
 
-.block,
-.block3 {
+.block
+ {
     display: none;
 }
-
-.block3 {
-    font-size: .5rem;
-}
-
 
 /* #main */
 
@@ -131,7 +105,6 @@ td {
     color: #000;
     text-align: center;
     margin-left: 2px;
-    padding: 5px auto;
 }
 
 #main .word {
@@ -145,19 +118,6 @@ table {
     border-collapse: separate;
     margin: 25px auto;
 }
-
-#help {
-    height: 4em;
-    width: 4em;
-    font-size: .8rem;
-    text-align: center;
-    border: var(--td-border);
-    border-width: 3px;
-    border-radius: 50%;
-    margin: auto;
-    padding: 0;
-}
-
 
 /* section #reference */
 
@@ -206,12 +166,11 @@ iframe {
     font-weight: bold;
 }
 
+/* section #comment */
+
 #disqus_thread {
     background-color: rgb(0, 68, 68);
 }
-
-
-/* section #comment */
 
 #comment {
     position: relative;
@@ -234,4 +193,34 @@ iframe {
     top: .5rem;
     right: 2rem;
     background-color: inherit;
+}
+
+#keyboard {
+    display: none;
+}
+
+#keys {
+    border-collapse: separate;
+    margin: 50px auto;
+}
+
+.key {
+    width: var(--key-size);
+    height: var(--key-size);
+    /* width: calc(4rem*100vh/100vw);
+    height: calc(4rem*100vh/100vw); */
+    font-size: 1.25em;
+    background: blue;
+    color: #fff;
+    border: 2px solid green;
+    border-radius: 20%;
+    text-align: center;
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+
+.key:hover {
+    cursor: pointer;
+    opacity: .7;
+    transform: scale(1.1);
 }

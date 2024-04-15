@@ -1,7 +1,6 @@
 "use strict";
 const html = document.querySelector("html");
 const body = document.querySelector("body");
-const bee = document.getElementById("bee");
 const attention = document.getElementById("attention");
 const toggler = document.getElementById("toggler");
 const raunds = document.getElementById("raunds");
@@ -13,21 +12,19 @@ const gamer2 = document.getElementById("gamer2");
 const play = document.getElementById("play");
 const num = document.getElementById("num");
 const main = document.getElementById("main");
-const useds = document.getElementById("useds");
-const letter = document.getElementById("letter");
-const tr1 = document.getElementById("tr1");
-const help = document.getElementById("help");
 const frame = document.getElementById("frame");
 const modalContent = document.querySelector("#mode1 .modal-content");
 const modalword = document.getElementById("modalword");
 const myanswer = document.getElementById("myanswer");
 const closemodal = document.getElementById("closemodal");
+const keyboard = document.getElementById('keyboard');
+const keys = document.getElementById('keys');
 
+const tds = document.querySelectorAll('.key');
 const block = document.getElementsByClassName("block");
 const block3 = document.getElementsByClassName("block3");
 
 let slovo = "";
-let used;
 let attempt = 7;
 let g1 = 0;
 let g2 = 0;
@@ -83,27 +80,21 @@ function adapter() {
     switch (screen) {
         case "xs":
             body.className = "fs-6";
-            useds.style.fontSize = ".5rem";
             break;
         case "sm":
             body.className = "fs-5";
-            useds.style.fontSize = ".7rem";
             break;
         case "md":
             body.className = "fs-4";
-            useds.style.fontSize = ".8rem";
             break;
         case "lg":
             body.className = "fs-3";
-            useds.style.fontSize = "1rem";
             break;
         case "xl":
             body.className = "fs-2";
-            useds.style.fontSize = "1rem";
             break;
         default:
             body.className = "fs-1";
-            useds.style.fontSize = "1.5rem";
     }
 }
 
@@ -121,10 +112,6 @@ document.addEventListener("keydown", (e) => {
 
 const myevent = new Event("click", { bubbles: true });
 
-bee.addEventListener("click", () => bee.classList.toggle("zoom"));
-
-let quote = "Как сладки гортани моей слова Твои! Лучше меда устам моим.";
-
 function openclass(name) {
     for (let el of name) {
         el.style.display = "block";
@@ -133,6 +120,7 @@ function openclass(name) {
 
 function start() {
     openclass(block3);
+    keyboard.style.display = "block";
     toPlay();
 }
 
@@ -146,6 +134,9 @@ function statePlay() {
 }
 
 function toPlay() {
+    tds.forEach((key) => {
+        key.dataset.state = true; key.style.opacity = 1
+    });
     if (JSON.parse(localStorage.getItem("userlist")).length < 5) {
         localStorage.setItem("userlist", JSON.stringify(list));
     }
@@ -153,9 +144,6 @@ function toPlay() {
     play.style.display = "none";
     modalContent.classList.remove("modal-resize");
     statePlay();
-    used = []; //список введённых букв
-    letter.value = ""; // поле ввода
-    tr1.innerHTML = ""; // отображение введённых букв
     main.innerHTML = ""; // поле #####
     frame.innerHTML = "";
     let storage = localStorage.getItem("userlist"); // плучаем строку
@@ -163,7 +151,6 @@ function toPlay() {
     let n = cifra(0, newlist.length - 1);
     slovo = newlist.splice(n, 1)[0];
     localStorage.setItem("userlist", JSON.stringify(newlist));
-
     // slovo = 'НЕУДОБОВРАЗУМИТЕЛЬНОЕ';
 
     for (let i = 0; i < slovo.length; i++) {
@@ -172,41 +159,17 @@ function toPlay() {
         div.classList.add("word");
         div.setAttribute("w", slovo[i]);
     }
-    letter.placeholder = "Введите букву или всё слово";
-    letter.focus();
 }
 
 const buttons = document.querySelectorAll('button[data-bs-dismiss="modal"]');
-buttons.forEach((el) => el.addEventListener("click", () => letter.focus()));
 
 // счёт по раундам:  side1/side2  => r1/r2
 // раунд:           total_raund
 // счёт:            gamer1/gamer2 => g1/g2
 // попытка:         attempt
 
-function ok() {
-    let w = letter.value;
-    if (w === "") {
-        warn("Введите букву или слово");
-    } else if (w.length === 1 && !alf.includes(w)) {
-        warn(
-            "Этот символ не является буквой алфавита. Проверьте раскладку клавиатуры"
-        );
-    } else if (used.includes(w)) {
-        warn("Эта буква уже вводилась!");
-    } else if (w.length > 1) {
-        ultimate(w.toUpperCase(), slovo);
-    } else {
-        used.push(w);
-        let td = document.createElement("td");
-        td.innerHTML = w;
-        tr1.appendChild(td);
-        check(w, slovo);
-    }
-    setTimeout(() => {
-        letter.value = "";
-        letter.focus();
-    }, 0);
+const state = {
+    letter: '',
 }
 
 function raundplus() {
@@ -248,8 +211,6 @@ function ultimate(a, b) {
             statePlay();
             finish();
         }
-        letter.value = "";
-        letter.focus();
     }, 0);
 }
 
@@ -266,7 +227,6 @@ function finish() {
 }
 
 function check(simv, hidden) {
-    //  'hidden'='slovo'
     let total = "";
     let word = document.querySelectorAll(".word"); // class 'word'
 
@@ -291,7 +251,6 @@ function check(simv, hidden) {
             ultimate(w.toUpperCase(), hidden);
         }, 0);
     }
-    letter.focus();
 }
 
 function warn(text) {
@@ -314,25 +273,9 @@ function warn(text) {
         );
         const warning = document.getElementById("warning");
         warning.addEventListener("closed.bs.alert", () => {
-            letter.value = "";
-            letter.focus();
             attention.style.display = "none";
         });
     }, 0);
-}
-
-function openLetter() {
-    main.addEventListener("click", look);
-    main.onmouseover = (e) => (e.target.style.opacity = 0.6);
-    main.onmouseout = (e) => (e.target.style.opacity = 1);
-}
-
-function look(e) {
-    e.target.innerHTML = e.target.getAttribute("w");
-    main.removeEventListener("click", look);
-    main.onmouseover = (e) => (e.target.style.opacity = 1);
-    help.style.display = "none";
-    letter.focus();
 }
 
 function opendict() {
@@ -341,38 +284,35 @@ function opendict() {
     modalContent.classList.add("modal-resize");
 }
 
-let radio1 = document.getElementById("Radio1");
-let radio2 = document.getElementById("Radio2");
+// let radio1 = document.getElementById("Radio1");
+// let radio2 = document.getElementById("Radio2");
 
-function tolight() {
-    html.style.setProperty("--fon-color", "#0ff");
-    html.style.setProperty("--fon-color2", "rgb(0, 0, 90)");
-    html.style.setProperty("--td-text", "#fff");
-    html.style.setProperty("--fon-text", "#000");
-    document.querySelector("h1").style.color = "#000";
-    toggler.style.color = "#000";
-    localStorage.setItem("theme", "light");
-}
-
-function todark() {
-    html.style.setProperty("--fon-color", "rgb(0, 0, 90)");
-    html.style.setProperty("--fon-color2", "#0ff");
-    html.style.setProperty("--td-text", "#000");
-    html.style.setProperty("--fon-text", "#fff");
-    document.querySelector("h1").style.color = "#ff0";
-    toggler.style.color = "#ff0";
-    localStorage.setItem("theme", "dark");
-}
-
-// if (localStorage.getItem("theme") !== null) {
-//     let theme = localStorage.getItem("theme");
-//     if (theme === "dark") {
-//         radio2.setAttribute("checked", true);
-//         radio2.onclick();
-//     } else {
-//         radio1.setAttribute("checked", true);
-//         radio1.onclick();
-//     }
+// function tolight() {
+//     html.style.setProperty("--fon-color", "#0ff");
+//     html.style.setProperty("--fon-color2", "rgb(0, 0, 90)");
+//     html.style.setProperty("--td-text", "#fff");
+//     html.style.setProperty("--fon-text", "#000");
+//     document.querySelector("h1").style.color = "#000";
+//     toggler.style.color = "#000";
+//     localStorage.setItem("theme", "light");
 // }
 
-// todark();
+// function todark() {
+//     html.style.setProperty("--fon-color", "rgb(0, 0, 90)");
+//     html.style.setProperty("--fon-color2", "#0ff");
+//     html.style.setProperty("--td-text", "#000");
+//     html.style.setProperty("--fon-text", "#fff");
+//     document.querySelector("h1").style.color = "#ff0";
+//     toggler.style.color = "#ff0";
+//     localStorage.setItem("theme", "dark");
+// }
+
+
+keys.addEventListener('click', (e) => {
+    let key = e.target;
+    if (key.dataset.state === 'true') {
+        key.style.opacity = 0.5;
+        key.dataset.state = 'false';
+        check(key.innerText, slovo)
+    }
+})
