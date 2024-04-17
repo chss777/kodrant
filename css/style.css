@@ -22,44 +22,39 @@ html {
 body {
     background: var(--fon-color2);
     /* color: var(--fon-text); */
-    color: #fff;
-}
-
-#title {
-    position: relative;
-}
-
-.icon {
-    width: 10vw;
-    height: 10vw;
-    text-align: center;
-    font-size: .6em;
-    margin-left: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-img {
-    width: 8vw;
-    height: 8vw;
-    margin: 4px auto;
+    color: var(--td-text);
 }
 
 
 /* section #start */
 
-h1 {
-    font-family: 'IrishGrrove';
-    font-size: 1.5em;
-    color: rgb(255, 255, 0);
-    ;
+.logo {
+    position: relative;
+    & .icon {
+        text-align: center;
+        margin-left: 10px;
+        /* cursor: pointer; */
+        position: absolute;
+        left: 0;
+        top: 0;
+        & img {
+            width: 3rem;
+            height: 3rem;
+            margin: 4px auto;
+        }
+    }
 }
 
-#logo2 {
-    font-size: .7em;
-    color: #fff;
+#title {
+    font-family: 'IrishGrrove';
+    & h1 {
+        font-size: 1.5em;
+        color: rgb(255, 255, 0);
+    }
+    & #title_small {
+        font-size: .5em;
+        color: #fff;
+    }
 }
 
 
@@ -72,11 +67,10 @@ h1 {
     display: none;
     position: absolute;
     left: 24vw;
-}
-
-#attention .alert {
-    border-radius: 2em;
-    z-index: 1;
+    &.alert {
+        border-radius: 2em;
+        z-index: 1;
+    }
 }
 
 #warning {
@@ -86,10 +80,10 @@ h1 {
 
 /*section #counter */
 
-.block
- {
+.block {
     display: none;
 }
+
 
 /* #main */
 
@@ -109,15 +103,20 @@ td {
 
 #main .word {
     border-color: green;
+    @media (width > 1200px) {
+        font-size: 1em;
+    }
 }
 
 
 /* section #input */
 
-table {
+
+/* table {
     border-collapse: separate;
     margin: 25px auto;
-}
+} */
+
 
 /* section #reference */
 
@@ -125,31 +124,27 @@ table {
     position: relative;
     color: #000;
     min-width: 40vw;
-}
-
-.btn-close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
-#header-content {
-    font-size: 0.6rem;
-    width: 100%;
-    text-align: center;
-}
-
-#modalword {
-    font-size: 1.2rem;
-    background: inherit;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-#frame {
-    width: inherit;
-    height: 100%;
-    font-size: 1rem;
+    & #header-content {
+        font-size: 0.6rem;
+        width: 100%;
+        text-align: center;
+    }
+    & #modalword {
+        font-size: 1.2rem;
+        background: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    & .btn-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    & #frame {
+        width: inherit;
+        height: 100%;
+        font-size: 1rem;
+    }
 }
 
 iframe {
@@ -166,6 +161,35 @@ iframe {
     font-weight: bold;
 }
 
+
+/* section "keyboard" */
+
+#keyboard {
+    display: none;
+    & #keys {
+        border-collapse: separate;
+        margin: 50px auto;
+        & .key {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+            background: blue;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 20%;
+            text-align: center;
+            transition-property: transform;
+            transition-duration: 0.3s;
+            &[data-state="true"]:hover {
+                cursor: pointer;
+                opacity: .7;
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
+
 /* section #comment */
 
 #disqus_thread {
@@ -178,8 +202,14 @@ iframe {
     justify-content: center;
 }
 
+#viewcomm {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
 #comment svg {
-    fill: var(--fon-color);
+    fill: #fff;
 }
 
 #hidecomm {
@@ -193,34 +223,4 @@ iframe {
     top: .5rem;
     right: 2rem;
     background-color: inherit;
-}
-
-#keyboard {
-    display: none;
-}
-
-#keys {
-    border-collapse: separate;
-    margin: 50px auto;
-}
-
-.key {
-    width: var(--key-size);
-    height: var(--key-size);
-    /* width: calc(4rem*100vh/100vw);
-    height: calc(4rem*100vh/100vw); */
-    font-size: 1.25em;
-    background: blue;
-    color: #fff;
-    border: 2px solid green;
-    border-radius: 20%;
-    text-align: center;
-    transition-property: transform;
-    transition-duration: 0.5s;
-}
-
-.key:hover {
-    cursor: pointer;
-    opacity: .7;
-    transform: scale(1.1);
 }
