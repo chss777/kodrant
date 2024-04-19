@@ -15,9 +15,25 @@
     </head>
 
     <body>
+        <div class="row header">
+            <div class="col-12 text-center logo">
+                <div id="alfa_i_omega" class="icon fs-6">
+                    <img
+                        src="img/alfa_i_omega.png"
+                        alt="Alfa and Omega"
+                    />
+                </div>
+                <div id="title" class="text-center fs-1">
+                    <h1>Ugadaika</h1>
+                    <div id="title_small">
+                        <i>интеллектуальная библейская игра</i>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <section id="start">
-                <div class="row my-3">
+                <!-- <div class="row header">
                     <div class="col-12 text-center logo">
                         <div id="alfa_i_omega" class="icon fs-6">
                             <img
@@ -32,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row mt-5" id="play">
                     <div class="col-12 text-center">
                         <svg
@@ -160,6 +176,13 @@
                         </tr>
                     </tbody>
                 </table>
+                <div id="entire_word" class="text-center">
+                    <button 
+                    class="btn btn-danger"               onclick="express()"
+                    >
+                        Ввести слово
+                    </button>
+                </div>
             </section>
 
             <section id="comment" class="row mt-5">

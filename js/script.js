@@ -33,6 +33,7 @@ let r1 = 0;
 let r2 = 0;
 let answer;
 let story = [];
+let total = '';
 
 const alf =
     "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
@@ -227,7 +228,7 @@ function finish() {
 }
 
 function check(simv, hidden) {
-    let total = "";
+    total = "";
     let word = document.querySelectorAll(".word"); // class 'word'
 
     for (let i = 0; i < hidden.length; i++) {
@@ -282,6 +283,12 @@ function opendict() {
     myanswer.innerHTML = "";
     frame.innerHTML = `<iframe src="./kodrantID.html#${answer}" id="framic"></iframe>`;
     modalContent.classList.add("modal-resize");
+}
+
+const intire = document.getElementById('entire_word');
+function express() {
+    let w = prompt("Попробуйте ввести слово \n" + total);
+    ultimate(w.toUpperCase(), slovo);
 }
 
 // let radio1 = document.getElementById("Radio1");
