@@ -1,4 +1,7 @@
 "use strict";
+
+// 'Кодрант. Словарь Библейских понятий'. Автор: В. А. Слободяник
+
 const html = document.querySelector("html");
 const body = document.querySelector("body");
 const attention = document.getElementById("attention");
@@ -9,7 +12,7 @@ const side2 = document.getElementById("side2");
 const raund = document.getElementById("raund");
 const gamer1 = document.getElementById("gamer1");
 const gamer2 = document.getElementById("gamer2");
-const play = document.getElementById("play");
+// const play = document.getElementById("play");
 const num = document.getElementById("num");
 const main = document.getElementById("main");
 const frame = document.getElementById("frame");
@@ -17,12 +20,12 @@ const modalContent = document.querySelector("#mode1 .modal-content");
 const modalword = document.getElementById("modalword");
 const myanswer = document.getElementById("myanswer");
 const closemodal = document.getElementById("closemodal");
-const keyboard = document.getElementById('keyboard');
-const keys = document.getElementById('keys');
+const keyboard = document.getElementById("keyboard");
+const board = document.getElementById("keys");
+const comment = document.getElementById("comment");
 
-const tds = document.querySelectorAll('.key');
+const tds = document.querySelectorAll(".key");
 const block = document.getElementsByClassName("block");
-const block3 = document.getElementsByClassName("block3");
 
 let slovo = "";
 let attempt = 7;
@@ -33,7 +36,7 @@ let r1 = 0;
 let r2 = 0;
 let answer;
 let story = [];
-let total = '';
+let total = "";
 
 const alf =
     "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
@@ -105,11 +108,11 @@ window.addEventListener("resize", (e) => adapter());
 const mode1 = document.getElementById("mode1");
 const modal = new bootstrap.Modal(mode1);
 
-document.addEventListener("keydown", (e) => {
-    if (e.code === "Enter") {
-        ok();
-    }
-});
+// document.addEventListener("keydown", (e) => {
+//     if (e.code === "Enter") {
+//         ok();
+//     }
+// });
 
 const myevent = new Event("click", { bubbles: true });
 
@@ -117,12 +120,6 @@ function openclass(name) {
     for (let el of name) {
         el.style.display = "block";
     }
-}
-
-function start() {
-    openclass(block3);
-    keyboard.style.display = "block";
-    toPlay();
 }
 
 function statePlay() {
@@ -136,12 +133,14 @@ function statePlay() {
 
 function toPlay() {
     tds.forEach((key) => {
-        key.dataset.state = true; key.style.opacity = 1
+        key.dataset.state = true;
+        key.style.opacity = 1;
     });
     if (JSON.parse(localStorage.getItem("userlist")).length < 5) {
         localStorage.setItem("userlist", JSON.stringify(list));
     }
     openclass(block);
+    comment.style.display = "flex";
     play.style.display = "none";
     modalContent.classList.remove("modal-resize");
     statePlay();
@@ -168,10 +167,6 @@ const buttons = document.querySelectorAll('button[data-bs-dismiss="modal"]');
 // раунд:           total_raund
 // счёт:            gamer1/gamer2 => g1/g2
 // попытка:         attempt
-
-const state = {
-    letter: '',
-}
 
 function raundplus() {
     story.push(`${g1}:${g2}`);
@@ -227,12 +222,12 @@ function finish() {
     });
 }
 
-function check(simv, hidden) {
+function check(simv) {
     total = "";
-    let word = document.querySelectorAll(".word"); // class 'word'
+    let word = document.querySelectorAll(".word");
 
-    for (let i = 0; i < hidden.length; i++) {
-        if (hidden[i] === simv) {
+    for (let i = 0; i < slovo.length; i++) {
+        if (slovo[i] === simv) {
             word[i].innerHTML = simv;
         }
         word[i].innerHTML ? (total += word[i].innerHTML) : (total += "#");
@@ -249,7 +244,7 @@ function check(simv, hidden) {
             let w = prompt(
                 "Лимит попыток исчерпан. Попробуйте ввести слово:\n" + total
             );
-            ultimate(w.toUpperCase(), hidden);
+            ultimate(w.toUpperCase(), slovo);
         }, 0);
     }
 }
@@ -285,7 +280,7 @@ function opendict() {
     modalContent.classList.add("modal-resize");
 }
 
-const intire = document.getElementById('entire_word');
+const intire = document.getElementById("entire_word");
 function express() {
     let w = prompt("Попробуйте ввести слово \n" + total);
     ultimate(w.toUpperCase(), slovo);
@@ -314,12 +309,21 @@ function express() {
 //     localStorage.setItem("theme", "dark");
 // }
 
-
-keys.addEventListener('click', (e) => {
+board.addEventListener("click", (e) => {
     let key = e.target;
-    if (key.dataset.state === 'true') {
+    if (key.dataset.state === "true") {
         key.style.opacity = 0.5;
-        key.dataset.state = 'false';
-        check(key.innerText, slovo)
+        key.dataset.state = "false";
+        check(key.innerText);
     }
-})
+});
+
+const keys = document.querySelectorAll(".key");
+
+document.addEventListener("keydown", (e) => {
+    for (let i = 0; i < keys.length; i++) {
+        if (keys[i].innerText === e.key.toUpperCase()) {
+            keys[i].click();
+        }
+    }
+});

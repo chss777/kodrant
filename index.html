@@ -18,10 +18,7 @@
         <div class="row header">
             <div class="col-12 text-center logo">
                 <div id="alfa_i_omega" class="icon fs-6">
-                    <img
-                        src="img/alfa_i_omega.png"
-                        alt="Alfa and Omega"
-                    />
+                    <img src="img/alfa_i_omega.png" alt="Alfa and Omega" />
                 </div>
                 <div id="title" class="text-center fs-1">
                     <h1>Ugadaika</h1>
@@ -33,22 +30,6 @@
         </div>
         <div class="container">
             <section id="start">
-                <!-- <div class="row header">
-                    <div class="col-12 text-center logo">
-                        <div id="alfa_i_omega" class="icon fs-6">
-                            <img
-                                src="img/alfa_i_omega.png"
-                                alt="Alfa and Omega"
-                            />
-                        </div>
-                        <div id="title" class="text-center fs-1">
-                            <h1>Ugadaika</h1>
-                            <div id="title_small">
-                                <i>интеллектуальная библейская игра</i>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="row mt-5" id="play">
                     <div class="col-12 text-center">
                         <svg
@@ -58,7 +39,7 @@
                             fill="green"
                             class="bi bi-play-fill btn"
                             viewBox="0 0 16 16"
-                            onclick="start()"
+                            onclick="toPlay()"
                         >
                             <path
                                 d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
@@ -132,7 +113,7 @@
                 ></div>
             </div>
 
-            <section id="keyboard">
+            <section id="keyboard" class="block">
                 <table id="keys">
                     <tbody>
                         <tr>
@@ -177,9 +158,7 @@
                     </tbody>
                 </table>
                 <div id="entire_word" class="text-center">
-                    <button 
-                    class="btn btn-danger"               onclick="express()"
-                    >
+                    <button class="btn btn-danger" onclick="express()">
                         Ввести слово
                     </button>
                 </div>
