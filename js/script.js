@@ -12,7 +12,6 @@ const side2 = document.getElementById("side2");
 const raund = document.getElementById("raund");
 const gamer1 = document.getElementById("gamer1");
 const gamer2 = document.getElementById("gamer2");
-// const play = document.getElementById("play");
 const num = document.getElementById("num");
 const main = document.getElementById("main");
 const frame = document.getElementById("frame");
@@ -157,7 +156,7 @@ function toPlay() {
         let div = document.createElement("div");
         main.append(div);
         div.classList.add("word");
-        div.setAttribute("w", slovo[i]);
+        // div.setAttribute("w", slovo[i]);
     }
 }
 
@@ -181,24 +180,28 @@ function raundplus() {
 
 function ultimate(a, b) {
     let color = "red";
+    let resume = "";
     if (a === b) {
         color = "green";
+        resume = "Отлично! Ваш ответ правильный!";
         g1 += 1;
         if (g1 === 3) {
             r1 += 1;
             raundplus();
         }
     } else {
+        resume = "Это не правильный ответ";
         g2 += 1;
         if (g2 === 3) {
             r2 += 1;
             raundplus();
         }
     }
+    if (a.length === 0) {a = `<i>не выбран?</i>`};
     modalword.innerHTML = b;
     answer = b;
     modal.show();
-    myanswer.innerHTML = `Ваш ответ: <h5 id='mytext' style="color: ${color}">${a}</h5>`;
+    myanswer.innerHTML = `Ваш вариант: <h5 id='mytext' class="text-primary">${a}</h5><h3 style="color: ${color}">${resume}</h3>`;
 
     setTimeout(() => {
         if (r1 < 3 && r2 < 3) {
@@ -312,7 +315,7 @@ function express() {
 board.addEventListener("click", (e) => {
     let key = e.target;
     if (key.dataset.state === "true") {
-        key.style.opacity = 0.5;
+        key.style.opacity = 0.4;
         key.dataset.state = "false";
         check(key.innerText);
     }

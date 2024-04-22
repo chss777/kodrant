@@ -64,6 +64,10 @@ body {
     }
 }
 
+/* section '#start' */
+#start svg {
+    margin-top: 10vh;
+}
 
 /* section #attention */
 
@@ -132,7 +136,7 @@ td {
     color: #000;
     min-width: 40vw;
     & #header-content {
-        font-size: 0.6rem;
+        font-size: 1.2rem;
         width: 100%;
         text-align: center;
     }
@@ -152,6 +156,10 @@ td {
         height: 100%;
         font-size: 1rem;
     }
+}
+
+#myanswer {
+    font-size: 1.2rem;
 }
 
 iframe {
