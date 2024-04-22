@@ -197,7 +197,7 @@ function ultimate(a, b) {
             raundplus();
         }
     }
-    if (a.length === 0) {a = `<i>не выбран?</i>`};
+    if (a.length === 0) {a = `<i>ничего не написано</i>`};
     modalword.innerHTML = b;
     answer = b;
     modal.show();
