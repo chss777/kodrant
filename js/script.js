@@ -16,6 +16,7 @@ const num = document.getElementById("num");
 const main = document.getElementById("main");
 const frame = document.getElementById("frame");
 const modalContent = document.querySelector("#mode1 .modal-content");
+const headerContent = document.getElementById("header_content");
 const modalword = document.getElementById("modalword");
 const myanswer = document.getElementById("myanswer");
 const closemodal = document.getElementById("closemodal");
@@ -128,6 +129,8 @@ function statePlay() {
     gamer1.innerHTML = g1; // счёт в текущем раунде
     gamer2.innerHTML = g2; // ------
     num.innerHTML = attempt = 7; // количество оставшихся попыток
+    headerContent.innerHTML = "Правильный ответ:";
+    headerContent.style.fontSize = "1.2rem";
 }
 
 function toPlay() {
@@ -197,7 +200,9 @@ function ultimate(a, b) {
             raundplus();
         }
     }
-    if (a.length === 0) {a = `<i>ничего не написано</i>`};
+    if (a.length === 0) {
+        a = `<i>ничего не написано</i>`;
+    }
     modalword.innerHTML = b;
     answer = b;
     modal.show();
@@ -280,6 +285,8 @@ function warn(text) {
 function opendict() {
     myanswer.innerHTML = "";
     frame.innerHTML = `<iframe src="./kodrantID.html#${answer}" id="framic"></iframe>`;
+    headerContent.innerHTML = `Кодрант. Словарь Библейских понятий.<br><i>В.А. Слободяник</i>`;
+    headerContent.style.fontSize = ".5em";
     modalContent.classList.add("modal-resize");
 }
 
