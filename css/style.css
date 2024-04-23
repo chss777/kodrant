@@ -64,10 +64,13 @@ body {
     }
 }
 
+
 /* section '#start' */
+
 #start svg {
     margin-top: 10vh;
 }
+
 
 /* section #attention */
 
@@ -186,7 +189,7 @@ iframe {
         margin: 50px auto;
         & .key {
             width: 2rem;
-            height: 2rem;
+            height: 2.2rem;
             font-size: 1rem;
             background: blue;
             color: #fff;
