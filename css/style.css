@@ -8,7 +8,7 @@
 html {
     --td-text: #fff;
     --td-bgcolor: #0ff;
-    --td-border: .15em solid red;
+    --td-border: .15em solid green;
     --fon-color2: rgb(0, 0, 90);
     --fon-color: #0ff;
     --fon-text: #000;
@@ -99,30 +99,6 @@ body {
 }
 
 
-/* #main */
-
-.word,
-td {
-    width: 2em;
-    height: 2em;
-    font-size: 1.25em;
-    font-weight: bold;
-    border: var(--td-border);
-    border-radius: 50%;
-    background-color: var(--fon-color);
-    color: #000;
-    text-align: center;
-    margin-left: 2px;
-}
-
-#main .word {
-    border-color: green;
-    @media (width > 1200px) {
-        font-size: 1em;
-    }
-}
-
-
 /* section #input */
 
 
@@ -177,6 +153,34 @@ iframe {
 #mytext {
     text-transform: uppercase;
     font-weight: bold;
+}
+
+
+/* section "main" */
+
+.word {
+    width: 2em;
+    height: 2em;
+    font-size: 1.25em;
+    font-weight: bold;
+    border: var(--td-border);
+    border-radius: 50%;
+    background-color: var(--fon-color);
+    color: #000;
+    text-align: center;
+    margin-left: 2px;
+    @media (width > 1200px) {
+        font-size: 1em;
+    }
+}
+
+.box {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--td-bgcolor);
+    resize: none;
+    text-align: center;
+    margin: 5px 2px;
 }
 
 

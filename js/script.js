@@ -13,13 +13,14 @@ const raund = document.getElementById("raund");
 const gamer1 = document.getElementById("gamer1");
 const gamer2 = document.getElementById("gamer2");
 const num = document.getElementById("num");
-const main = document.getElementById("main");
+const blank = document.getElementById("blank");
 const frame = document.getElementById("frame");
 const modalContent = document.querySelector("#mode1 .modal-content");
 const headerContent = document.getElementById("header_content");
 const modalword = document.getElementById("modalword");
 const myanswer = document.getElementById("myanswer");
 const closemodal = document.getElementById("closemodal");
+const revise = document.getElementById("revise");
 const keyboard = document.getElementById("keyboard");
 const board = document.getElementById("keys");
 const comment = document.getElementById("comment");
@@ -131,6 +132,9 @@ function statePlay() {
     num.innerHTML = attempt = 7; // количество оставшихся попыток
     headerContent.innerHTML = "Правильный ответ:";
     headerContent.style.fontSize = "1.2rem";
+    blank.innerHTML = ""; // поле #####
+    frame.innerHTML = "";
+    revise.innerHTML = "";
 }
 
 function toPlay() {
@@ -146,8 +150,6 @@ function toPlay() {
     play.style.display = "none";
     modalContent.classList.remove("modal-resize");
     statePlay();
-    main.innerHTML = ""; // поле #####
-    frame.innerHTML = "";
     let storage = localStorage.getItem("userlist"); // плучаем строку
     let newlist = JSON.parse(storage); // преобразуем в массив
     let n = cifra(0, newlist.length - 1);
@@ -157,8 +159,14 @@ function toPlay() {
 
     for (let i = 0; i < slovo.length; i++) {
         let div = document.createElement("div");
-        main.append(div);
+        blank.append(div);
         div.classList.add("word");
+        // let td = document.createElement("div");
+        // td.innerHTML = '<textarea class="box" maxlength="1"></textarea>';
+        let td = document.createElement("textarea");
+        revise.append(td);
+        td.classList.add("box");
+        td.setAttribute("maxlength", "1");
         // div.setAttribute("w", slovo[i]);
     }
 }
