@@ -1,5 +1,4 @@
 "use strict";
-
 // 'Кодрант. Словарь Библейских понятий'. Автор: В. А. Слободяник
 
 const html = document.querySelector("html");
@@ -14,6 +13,7 @@ const gamer1 = document.getElementById("gamer1");
 const gamer2 = document.getElementById("gamer2");
 const num = document.getElementById("num");
 const main = document.getElementById("main");
+const help = document.getElementById("help");
 const frame = document.getElementById("frame");
 const modalContent = document.querySelector("#mode1 .modal-content");
 const headerContent = document.getElementById("header_content");
@@ -50,8 +50,6 @@ const alf =
 //     }
 // }
 // navigator();
-
-// localStorage.setItem('userlist', JSON.stringify(list));
 
 if (localStorage.getItem("userlist") === null) {
     localStorage.setItem("userlist", JSON.stringify(list));
@@ -159,8 +157,8 @@ function toPlay() {
         let div = document.createElement("div");
         main.append(div);
         div.classList.add("word");
-        // div.setAttribute("w", slovo[i]);
     }
+    help.innerHTML = diction[slovo];
 }
 
 const buttons = document.querySelectorAll('button[data-bs-dismiss="modal"]');
